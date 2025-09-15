@@ -1,14 +1,14 @@
 // components/StudentDashboard.jsx
 import React, { useState, useEffect } from "react";
-import Sidebar from "/components/Sidebar";
-import Navbar from "/components/Navbar";
+import Sidebar from "./Sidebar";
+import Navbar from "./Navbar";
 // import AttendanceCard from "./AttendanceCard";
 // import PaymentsCard from "./PaymentsCard";
 // import MenuCard from "./MenuCard";
 import axios from "axios";
 
 const StudentDashboard = () => {
-  const [studentName, setStudentName] = useState("Student");
+  const [ī, setī] = useState("Student");
   const [attendance, setAttendance] = useState({});
   const [payments, setPayments] = useState([]);
   const [menu, setMenu] = useState({});
@@ -20,9 +20,8 @@ const StudentDashboard = () => {
     const headers = { Authorization: `Bearer ${token}` };
 
     axios.get("http://localhost:5000/api/student/profile", { headers })
-      .then((res) => setStudentName(res.data.name))
+      .then((res) => setī(res.data.name))
       .catch(console.error);
-
     axios.get("http://localhost:5000/api/student/attendance", { headers })
       .then((res) => setAttendance(res.data))
       .catch(console.error);
@@ -49,7 +48,7 @@ const StudentDashboard = () => {
     <div className="flex">
       <Sidebar onNavigate={handleNavigate} />
       <div className="flex-1 min-h-screen bg-gray-100">
-        <Navbar studentName={studentName} />
+        <Navbar studentName={ī} />
         <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           {currentView === "dashboard" && (
             <>

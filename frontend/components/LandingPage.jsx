@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import ContactForm from "/components/ContactForm";
+import ContactForm from "./ContactForm";
 import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
@@ -61,10 +61,10 @@ const LandingPage = () => {
           </button>
 
           <button
-            onClick={() => navigate("#features")}
+            onClick={() => navigate("/signup")}
             className="bg-white text-blue-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-200"
           >
-            Learn More
+            Sign-up
           </button>
         </div>
       </header>
